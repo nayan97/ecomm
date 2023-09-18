@@ -115,13 +115,13 @@
                                 <img src="admin/assets/img/profiles/avatar-01.jpg" alt="User Image" class="avatar-img rounded-circle">
                             </div>
                             <div class="user-text">
-                                <h6>Ryan Taylor</h6>
+                                {{-- <h6>{{ Auth::guard('web') -> user() -> name }}</h6> --}}
                                 <p class="text-muted mb-0">Administrator</p>
                             </div>
                         </div>
                         <a class="dropdown-item" href="profile.html">My Profile</a>
                         <a class="dropdown-item" href="settings.html">Settings</a>
-                        <a class="dropdown-item" href="login.html">Logout</a>
+                        <a class="dropdown-item" href="{{ route('admin.logout')}}">Logout</a>
                     </div>
                 </li>
                 <!-- /User Menu -->
