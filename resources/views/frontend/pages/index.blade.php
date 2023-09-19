@@ -47,28 +47,21 @@
             <div class="widget">
               <h6 class="upper">Trending Products</h6>
               <ul class="nav product-list">
+
+                @foreach ($data as $item)
+                  
+               
                 <li>
                   <div class="product-thumbnail">
-                    <img src="{{ url('frontend/images/shop/2.jpg') }}" alt="">
+                    <img src="{{ ('img/product/' . $item -> photo ) }}" alt="">
                   </div>
-                  <div class="product-summary"><a href="#">Premium Suit Blazer</a><span>$199.99</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="product-thumbnail">
-                    <img src="{{ url('frontend/images/shop/3.jpg') }}" alt="">
-                  </div>
-                  <div class="product-summary"><a href="#">Vintage Sweatshirt</a><span>$199.99</span>
+                  <div class="product-summary"><a href="{{ url('/singleproduct', $item->id) }}">{{$item-> name}}</a><span>${{$item->price}}</span>
                   </div>
                 </li>
-                <li>
-                  <div class="product-thumbnail">
-                    <img src="{{ url('frontend/images/shop/5.jpg') }}" alt="">
-                  </div>
-                  <div class="product-summary"><a href="#">Reiss Vara Blazer</a><span>$199.99</span>
-                  </div>
-                </li>
+                @endforeach
               </ul>
+
+
             </div>
             <!-- end of widget          -->
             <div class="widget">
@@ -108,150 +101,26 @@
           </div>
           <div class="container-fluid">
             <div class="row">
+
+              @foreach ($data as $data )
               <div class="col-md-4 col-sm-6">
                 <div class="shop-product">
                   <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/1.jpg') }}" alt="">
+                    <a href="{{ url('/singleproduct', $data->id) }}">
+                      <img style="width:250px; height:220px;" src="{{ ('img/product/' . $data -> photo ) }}" alt="">
                     </a>
                     <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
                     </div>
                   </div>
                   <div class="product-info">
-                    <h4 class="upper"><a href="#">Premium Notch Blazer</a></h4><span>$79.99</span>
+                    <h4 class="upper"><a href="#">{{$data->name}}</a></h4><span>${{$data->price}}</span>
                     <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/2.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Premium Suit Blazer</a></h4><span>$199.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/3.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Vintage Sweatshirt</a></h4><span>$99.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/4.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Longline Jersey Jacket</a></h4><span>$19.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/5.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Tailored Blazer</a></h4><span>$119.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/6.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Overcoat In Camel</a></h4><span>$99.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/7.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Jacket with Fringe</a></h4><span>$35.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/8.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Notch Blazer in Longline</a></h4><span>$135.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 col-sm-6">
-                <div class="shop-product">
-                  <div class="product-thumb">
-                    <a href="#">
-                      <img src="{{ url('frontend/images/shop/9.jpg') }}" alt="">
-                    </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
-                    </div>
-                  </div>
-                  <div class="product-info">
-                    <h4 class="upper"><a href="#">Waistcoat In Navy</a></h4><span>$299.99</span>
-                    <div class="save-product"><a href="#"><i class="icon-heart"></i></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              @endforeach
+            
             </div>
             <!-- end of row-->
             <ul class="pagination">

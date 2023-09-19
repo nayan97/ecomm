@@ -9,7 +9,7 @@
 								<a href="{{route('admin.dashboard')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
 							<li> 
-								<a href="appointment-list.html"><i class="fe fe-layout"></i> <span>Appointments</span></a>
+								<a href="{{ url('/products')}}"><i class="fe fe-layout"></i> <span>Product</span></a>
 							</li>
 							<li> 
 								<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>

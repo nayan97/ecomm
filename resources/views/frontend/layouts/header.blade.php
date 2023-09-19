@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Logo container-->
     <div class="logo">
-      <a href="index-2.html">
+      <a href="{{ url('/')}}">
         <img src="{{ url('frontend/images/logo_light.png')}}" alt="" class="logo-light">
         <img src="{{ url('frontend/images/logo_dark.png')}}" alt="" class="logo-dark">
       </a>
