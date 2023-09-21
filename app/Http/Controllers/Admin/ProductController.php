@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use Session;
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -92,4 +96,89 @@ class ProductController extends Controller
     {
         //
     }
+
+        /**
+         * add to cart
+         */
+    public function addToCart(Request $request){
+
+        if (Auth::id()) {
+          
+            $user =Auth::user();
+           
+            $cart =new Cart;
+            $cart -> user_id = $user->id;
+            $cart  -> product_id =$request-> product_id;
+
+            $cart -> save();
+            return redirect('/');
+        }else{
+            return redirect('/login');
+        }
+    }
+
+
+    /**
+     * show cart count
+     */
+
+    //  function show_cart() {
+    //     $user_id=Session::get('user')[id];
+    //     return Cart::where('user_id',$user_id)->count();
+    //  }
+
+
+    /**
+     * Show the cart
+     */
+
+    public function showCart()
+    { 
+        $user =Auth::user();
+        $userId = $user->id;
+
+        $products =DB::table('carts')
+        ->join('products','carts.product_id','=','products.id')
+        ->where('carts.user_id',$userId)
+        ->select('products.*', 'carts.id as carts_id')
+        ->get();
+    
+        return view('frontend.pages.cart',[
+            'products' =>$products
+        ]); 
+    }
+
+    /**
+     * remove a product from the cart
+     */
+
+     public function removeCart($id){
+        $product =Cart::findOrFail($id);
+
+        $product->delete();
+
+        return redirect()->back()-> with('success', 'Product deleted successfuly');
+     }
+
+
+     /**
+      * checkout product
+      */
+
+      public function checkout()
+      { 
+          $user =Auth::user();
+          $userId = $user->id;
+  
+         $total = $products =DB::table('carts')
+          ->join('products','carts.product_id','=','products.id')
+          ->where('carts.user_id',$userId)
+          ->sum('products.price');
+      
+          return view('frontend.pages.checkout',[
+              'total' =>$total
+          ]); 
+      }
+  
+
 }

@@ -6,6 +6,8 @@
     <div class="container">
       <div class="single-product-details">
         <div class="row">
+
+          @foreach ($datas as $data )
           <div class="col-md-6">
             <div>
                 <img style="height:450px" src="{{ url('img/product/' . $data -> photo ) }}" alt="">
@@ -30,11 +32,9 @@
               <p>{{$data -> description}}</p>
             </div>
             <div class="single-product-add">
-              <form action="{{ url('/add_cart')}}" class="inline-form" method="POST">
-                @csrf
+              <form action="#" class="inline-form">
                 <div class="input-group">
-                  <input name="product_id" type="hidden"value="{{$data -> id}} ">
-                  <span class="input-group-btn"><button type="submit" class="btn btn-color">Add to Cart<i class="ti-bag"></i></button></span>
+                  <input type="number" placeholder="QTY" value="1" min="1" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-color">Add to Cart<i class="ti-bag"></i></button></span>
                 </div>
               </form>
             </div>
@@ -49,6 +49,8 @@
               </ul>
             </div>
           </div>
+          @endforeach
+       
         </div>
         <!-- end of row-->
       </div>

@@ -1,3 +1,11 @@
+<?php
+use App\Http\Controllers\ProductController;
+// $total = ProductController::show_cart();
+
+?>
+
+
+
 <header id="topnav">
   <div class="container">
     <!-- Logo container-->
@@ -375,21 +383,16 @@
               <a href="#">Shop Layout</a>
               <ul class="submenu">
                 <li>
-                  <a href="shop-2col.html">2 Columns</a>
+                  <a href="{{url('/')}}">Shop</a>
                 </li>
                 <li>
-                  <a href="shop-3col.html">3 Columns</a>
-                </li>
-                <li>
-                  <a href="shop-4col.html">4 Columns</a>
-                </li>
               </ul>
             </li>
             <li>
               <a href="shop-single.html">Single Product</a>
             </li>
             <li>
-              <a href="shop-cart.html">Cart</a>
+              <a href="{{url('allcart')}}">Cart</a>
             </li>
             <li>
               <a href="shop-checkout.html">Checkout</a>

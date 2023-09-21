@@ -16,7 +16,7 @@ class HomeController extends Controller
     }
 
 
-
+// single page of product
     public function shop($id){
 
         $data =Product::findOrFail($id);
@@ -24,4 +24,23 @@ class HomeController extends Controller
             'data' => $data
         ]);
     }
+
+    //search for products
+
+
+    public function search(Request $request){
+      
+      
+      $datas = Product::where('name','like','%'.$request->input('search').'%')->get();
+
+      return view('frontend.pages.search',[
+        'datas' => $datas,
+      ]);
+    }
+
+
+
+
+
+
 }
