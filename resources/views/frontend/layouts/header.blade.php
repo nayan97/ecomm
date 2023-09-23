@@ -379,24 +379,13 @@ use App\Http\Controllers\ProductController;
         <li class="has-submenu last-elements">
           <a href="#">Shop</a>
           <ul class="submenu">
-            <li class="has-submenu">
-              <a href="#">Shop Layout</a>
-              <ul class="submenu">
-                <li>
-                  <a href="{{url('/')}}">Shop</a>
-                </li>
-                <li>
-              </ul>
-            </li>
             <li>
-              <a href="shop-single.html">Single Product</a>
+              <a href="{{url('/')}}">Shop</a>
             </li>
             <li>
               <a href="{{url('allcart')}}">Cart</a>
             </li>
-            <li>
-              <a href="shop-checkout.html">Checkout</a>
-            </li>
+         
           </ul>
         </li>
       </ul>

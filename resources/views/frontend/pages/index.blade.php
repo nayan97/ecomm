@@ -63,7 +63,7 @@
 
 
             </div>
-            <!-- end of widget          -->
+            <!-- end of widget       -->
             <div class="widget">
               <h6 class="upper">Search Shop</h6>
               <form action="/search">

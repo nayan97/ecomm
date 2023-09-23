@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Session;
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -179,6 +180,57 @@ class ProductController extends Controller
               'total' =>$total
           ]); 
       }
+
+
+      /**
+       * order table
+       */
+
+       public function order(Request $request){
+        $user =Auth::user();
+        $userId = $user->id;
+
+       $allcart = Cart::where('user_id', $userId)->get();
+
+       foreach($allcart as $cart){
+        $order = new Order;
+
+        $order->user_id=$cart->user_id;
+        $order->product_id = $cart->product_id;
+        $order->name =$request->name;
+        $order->address = $request->address;
+        $order->zip_code = $request->zip;
+        $order->city= $request->city;
+        $order->del_status='pending';
+        $order->payment_method = $request->payment;
+        $order->payment_status= 'pending';
+
+        $order->save();
+
+        // $data->name=$request -> name;
+        // $data->email=$request -> email;
+        // $data->address=$request -> address;
+        // $data->cell=$request -> cell;
+        // $data->user_id=$cart -> user_id;
+
+        // $data  -> product_id =$cart->product_id;
+        // $data  -> image =$cart->photo;
+        // $data  -> quantity=$cart->product_qty;
+        // $data  -> price =$cart->price;
+
+        // $data  -> payment_status='Cash On';
+        // $data  -> delivery_status='Prosseing';
+
+        // $data -> save();
+
+
+        Cart::where('user_id', $userId)->delete();
+
+        return redirect('/allcart');
+
+    }
+
+       }
   
 
 }

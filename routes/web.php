@@ -28,6 +28,7 @@ Route::group(['middleware' => 'users'],function (){
     Route::get('/allcart',[ProductController::class, 'showCart']);
     Route::get('/removecart/{id}',[ProductController::class, 'removeCart']);
     Route::get('/checkout',[ProductController::class, 'checkout']);
+    Route::post('/order',[ProductController::class, 'order']);
    
     //other routes for administration
 
@@ -39,4 +40,3 @@ Route::group(['middleware' => 'users'],function (){
     
     
 });
-
