@@ -1,9 +1,13 @@
+@php
+  $theme_data = App\Models\Theme::find(1)
+@endphp  
+
 <!DOCTYPE html>
 <html lang="en">
 
  
 <head>
-    <title>Comet | Creative Multi-Purpose HTML Template</title>
+  <title> {{$theme_data -> title}} | {{ $theme_data -> tagline}}</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -40,12 +40,45 @@ class AdminController extends Controller
         ]);
 
         if( Auth::guard('web') -> attempt([ 'email' => $request -> email , 'password' => $request -> password ]) ){
+            if (Auth:: user()->user_type == '0'){
+                return redirect() -> route('home.page');
+            }else{
 
-            return redirect() -> route('admin.dashboard');
+                return redirect() -> route('admin.dashboard');
+            }
 
         }else {
             return redirect() -> route('admin.login') -> with('error', 'Wrong Email or Password');
         }
     }
+
+    /**
+     * register show
+     */
+
+     public function registerSystem() 
+     {
+        return view('admin.pages.register');
+     }
+
+    /**
+     * register system
+     */
+
+
+     public function register(Request $request){
+
+        $user = new User();
+
+        $user -> name = $request-> name;
+        $user -> email = $request-> email;
+        $user -> cell = $request-> cell;
+        $user -> password = Hash::make($request-> password);
+
+        $user->save();
+
+        return redirect('/login');
+
+     }
 
 }

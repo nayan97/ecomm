@@ -1,3 +1,12 @@
+@php
+
+$theme_data=App\Models\Theme::find(1);
+$social = json_decode($theme_data -> social, false);
+
+
+@endphp
+
+
 <!-- Footer-->
 <footer id="footer-widgets">
     <div class="container">
@@ -87,7 +96,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="copy-text">
-              <p><i class="icon-heart red mr-15"></i>© 2015 Comet Agency.</p>
+              <p><i class="icon-heart red mr-15"></i>{{$theme_data->copy}}</p>
             </div>
           </div>
           <div class="col-md-4">
@@ -109,21 +118,39 @@
           <div class="col-md-4">
             <div class="footer-social">
               <ul>
+                 
+                @if (!empty ($social -> fb))
                 <li>
-                  <a target="_blank" href="#"><i class="ti-facebook"></i></a>
+                    <a target="_blank" href="{{ $social -> fb }}"><i class="ti-facebook"></i></a>
                 </li>
+                    @endif
+              
+                    @if (!empty ($social -> tw))
                 <li>
-                  <a target="_blank" href="#"><i class="ti-twitter-alt"></i></a>
+                  <a target="_blank" href="{{$social -> tw}}"><i class="ti-twitter-alt"></i></a>
                 </li>
-                <li>
-                  <a target="_blank" href="#"><i class="ti-linkedin"></i></a>
-                </li>
-                <li>
-                  <a target="_blank" href="#"><i class="ti-instagram"></i></a>
-                </li>
-                <li>
-                  <a target="_blank" href="#"><i class="ti-dribbble"></i></a>
-                </li>
+                    
+                    @endif
+                    @if (!empty ($social -> din))
+                    <li>
+                       <a target="_blank" href="{{$social -> din}}"><i class="ti-linkedin"></i></a>
+                      </li>
+                    
+                    @endif
+                    @if (!empty ($social -> ins))
+                    <li>
+                      <a target="_blank" href="{{$social -> ins}}"><i class="ti-instagram"></i></a>
+                   </li>
+                    
+                    @endif
+
+                    @if (!empty ($social -> wapp))
+                    <li>
+                      <a target="_blank" href="{{$social -> wapp}}"><i class="ti-whatsapp"></i></a>
+                    </li>
+                    
+                    @endif
+    
               </ul>
             </div>
           </div>

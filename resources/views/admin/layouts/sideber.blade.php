@@ -14,10 +14,6 @@
 							<li> 
 								<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
 							</li>
-					
-							<li> 
-								<a href="settings.html"><i class="fe fe-vector"></i> <span>Settings</span></a>
-							</li>
 							<li class="submenu">
 								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
@@ -38,6 +34,9 @@
 									<li><a href="forgot-password.html"> Forgot Password </a></li>
 									<li><a href="lock-screen.html"> Lock Screen </a></li>
 								</ul>
+							</li>
+							<li> 
+								<a href="{{ route('theme.index')}}"><i class="fe fe-vector"></i> <span>Settings</span></a>
 							</li>
 							<li> 
 								<a href="{{ route('admin.logout')}}"><i class="fe fe-star-o"></i> <span>Logout</span></a>
