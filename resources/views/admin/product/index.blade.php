@@ -115,6 +115,15 @@
                                                     </select>
                         
                                                 </div>
+
+                                                <div class="form-group">
+                                                    <label>Tags</label>
+                                                    <select class="form-control comet-select-2" name="tag[]" id="" multiple>
+                                                        @foreach( $tags as $tag )
+                                                        <option value="{{ $tag -> id }}">{{ $tag -> name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
                                                 <div class="form-group">
                                                     <label>Image</label>
                                                     <input name="photo" type="file" class="form-control">

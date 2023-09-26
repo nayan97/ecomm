@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\ThemeController;
+use App\Http\Controllers\Admin\ProTagController;
 use App\Http\Controllers\Admin\ProductController;
 
 Route::group(['middleware' => 'users.redirect'],function (){
@@ -18,6 +19,7 @@ Route::get('/',[HomeController::class,'index'])->name('home.page');
 
 Route::get('/singleproduct/{id}',[HomeController::class,'shop']);
 Route::get('/search',[HomeController::class,'search']);
+Route::get('/tag/{slug}',[HomeController::class,'showProductbyTag'])->name('product.tag');
 
 Route::get('/register',[AdminController::class, 'registerSystem']); 
 Route::post('/register',[AdminController::class, 'register']); 
@@ -43,6 +45,8 @@ Route::group(['middleware' => 'users'],function (){
     Route::get('/adminpage',[UserController::class, 'index'])->name('admin.dashboard');
 
     Route::resource('theme', ThemeController::class);
+    Route::resource('protag', ProTagController::class);
+    
     
     
 });

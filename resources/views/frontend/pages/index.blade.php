@@ -47,15 +47,18 @@
             <div class="widget">
               <h6 class="upper">Trending Products</h6>
               <ul class="nav product-list">
+                @php
+                $resent =App\Models\Product::take(3)->get();
+              @endphp
 
-                @foreach ($data as $item)
+                @foreach ($resent as $resent)
                   
                
                 <li>
                   <div class="product-thumbnail">
-                    <img src="{{ ('img/product/' . $item -> photo ) }}" alt="">
+                    <img src="{{ ('img/product/' . $resent -> photo ) }}" alt="">
                   </div>
-                  <div class="product-summary"><a href="{{ url('/singleproduct', $item->id) }}">{{$item-> name}}</a><span>${{$item->price}}</span>
+                  <div class="product-summary"><a href="{{ url('/singleproduct', $resent->id) }}">{{$resent-> name}}</a><span>${{$resent->price}}</span>
                   </div>
                 </li>
                 @endforeach
@@ -73,7 +76,15 @@
             <!-- end of widget        -->
             <div class="widget">
               <h6 class="upper">Popular Tags</h6>
-              <div class="tags clearfix"><a href="#">Hipster</a><a href="#">Fashion</a><a href="#">Shirt</a><a href="#">Modern</a><a href="#">Vintage</a>
+
+              @php
+                $tags =App\Models\Protag::all();
+              @endphp
+              <div class="tags clearfix">
+                @foreach ($tags as $item )
+                <a href="{{ route('product.tag', $item->slug)}}">{{$item->name}}</a>
+                @endforeach
+               
               </div>
             </div>
             <!-- end of widget      -->

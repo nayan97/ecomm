@@ -2,19 +2,17 @@
 
 namespace App\Models;
 
-use App\Models\Protag;
+use App\Models\Product;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends Model
+class Protag extends Model
 {
     use HasFactory;
     protected $guarded =[];
 
-public function tag()
-{
-
-    return $this -> belongsToMany(Protag::class);
-}
-
+    public function Product()
+    {
+        return $this -> belongsToMany(Product::class);
+    }
 }

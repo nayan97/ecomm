@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Session;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Protag;
 use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -18,10 +19,12 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {   $data=Product::all();
+    {   $tags=Protag::all();
+        $data=Product::all();
         return view('admin.product.index',[
         'data' => $data,
-        'form' => 'create'
+        'form' => 'create',
+        'tags' => $tags
 
         ]);
     }
@@ -62,6 +65,8 @@ class ProductController extends Controller
       $product->photo= $file_name;
       
       $product->save();
+
+      $product -> tag() -> attach($request -> tag);
 
       return redirect()->back()-> with('success', 'Product Uploaded successfuly');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Protag;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -39,8 +40,20 @@ class HomeController extends Controller
     }
 
 
+/**
+ * product search by category
+ */
+public function showProductbyTag($slug){
 
+    $tags =Protag::where('slug', $slug)->first();
 
+    $data = $tags->Product;
+  
+    return view('frontend.pages.index', [
+        'data' => $data
+    ]);
+
+}
 
 
 }
