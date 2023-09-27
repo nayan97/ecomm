@@ -93,27 +93,12 @@
         </div>
         <div class="col-md-9">
           <div class="shop-menu">
-            <div class="row">
-              <div class="col-sm-8">
-                <h6 class="upper">Displaying 6 of 18 results</h6>
-              </div>
-              <div class="col-sm-4">
-                <div class="form-select">
-                  <select name="type" class="form-control">
-                    <option selected="selected" value="">Sort By</option>
-                    <option value="">What's new</option>
-                    <option value="">Price high to low</option>
-                    <option value="">Price low to high</option>
-                  </select>
-                </div>
-              </div>
-            </div>
             <!-- end of row-->
           </div>
           <div class="container-fluid">
             <div class="row">
 
-              @foreach ($data as $data )
+              @foreach ($datas as $data )
               <div class="col-md-4 col-sm-6">
                 <div class="shop-product">
                   <div class="product-thumb">
@@ -135,20 +120,20 @@
             </div>
             <!-- end of row-->
             <ul class="pagination">
-              <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="ti-arrow-left"></i></span></a>
+              {{-- <li><a href="#" aria-label="Previous"><span aria-hidden="true"><i class="ti-arrow-left"></i></span></a>
+              </li> --}}
+              {{-- <li class="active"><a href="#">1</a>
+              </li> --}}
+              <li><a href="#">{{$datas -> links()}}</a>
               </li>
-              <li class="active"><a href="#">1</a>
-              </li>
-              <li><a href="#">2</a>
-              </li>
-              <li><a href="#">3</a>
+              {{-- <li><a href="#">3</a>
               </li>
               <li><a href="#">4</a>
               </li>
               <li><a href="#">5</a>
-              </li>
-              <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="ti-arrow-right"></i></span></a>
-              </li>
+              </li> --}}
+              {{-- <li><a href="#" aria-label="Next"><span aria-hidden="true"><i class="ti-arrow-right"></i></span></a>
+              </li> --}}
             </ul>
             <!-- end of pagination-->
           </div>

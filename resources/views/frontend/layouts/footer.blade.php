@@ -15,7 +15,7 @@ $social = json_decode($theme_data -> social, false);
           <i class="ti-arrow-up"></i>
         </a>
       </div>
-      <div class="row">
+      {{-- <div class="row">
         <div class="col-md-6 ov-h">
           <div class="row">
             <div class="col-sm-4">
@@ -85,7 +85,7 @@ $social = json_decode($theme_data -> social, false);
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
       <!-- end of row-->
     </div>
     <!-- end of container-->
@@ -102,16 +102,13 @@ $social = json_decode($theme_data -> social, false);
           <div class="col-md-4">
             <ul class="list-inline">
               <li>
-                <a href="#">About</a>
+                <a href="{{route('about.page')}}">About</a>
               </li>
               <li>
-                <a href="#">Services</a>
+                <a href="{{route('home.page')}}">shop</a>
               </li>
               <li>
-                <a href="#">Blog</a>
-              </li>
-              <li>
-                <a href="#">Contact</a>
+                <a href="{{route('contact.page')}}">Contact</a>
               </li>
             </ul>
           </div>

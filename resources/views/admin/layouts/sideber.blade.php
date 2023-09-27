@@ -8,16 +8,13 @@
 							<li class="active"> 
 								<a href="{{route('admin.dashboard')}}"><i class="fe fe-home"></i> <span>Dashboard</span></a>
 							</li>
-							<li> 
-								<a href="{{ url('/products')}}"><i class="fe fe-layout"></i> <span>Product</span></a>
-							</li>
-							<li> 
-								<a href="specialities.html"><i class="fe fe-users"></i> <span>Specialities</span></a>
-							</li>
 							<li class="submenu">
-								<a href="#"><i class="fe fe-document"></i> <span> Reports</span> <span class="menu-arrow"></span></a>
+								<a href="#"><i class="fe fe-document"></i> <span> Product</span> <span class="menu-arrow"></span></a>
 								<ul style="display: none;">
-									<li><a href="invoice-report.html">Invoice Reports</a></li>
+									<li><a href="{{ url('/products')}}">Add Product</a></li>
+									<li><a href="{{ url('/category')}}">Product Category</a></li>
+									<li><a href="{{ url('/protag')}}">Product Tags</a></li>
+
 								</ul>
 							</li>
 							<li class="menu-title"> 

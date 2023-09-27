@@ -68,20 +68,7 @@ $theme_data=App\Models\Theme::find(1);
       </div>
       <div class="menu-item">
         <!-- Search Form-->
-        <div class="search">
-          <a href="#">
-            <i class="ti-search"></i>
-          </a>
-          <div class="search-form">
-            <form action="#" class="inline-form">
-              <div class="input-group">
-                <input type="text" placeholder="Search" class="form-control"><span class="input-group-btn"><button type="button" class="btn btn-color"><span><i class="ti-search"></i></span>
-                </button>
-                </span>
-              </div>
-            </form>
-          </div>
-        </div>
+     
         <!-- End search form-->
       </div>
       <div class="menu-item">
@@ -99,38 +86,9 @@ $theme_data=App\Models\Theme::find(1);
     <div id="navigation">
       <!-- Navigation Menu-->
       <ul class="navigation-menu">
-        <li class="has-submenu">
-          <a href="#">Home</a>
-          <ul class="submenu megamenu">
-            <li>
-              <ul>
-                <li>
-                  <span>Home Layouts</span>
-                </li>
-                <li>
-                  <a href="home-restaurant.html">Restaurant</a>
-                </li>
-                <li>
-                  <a href="home-architecture.html">Architecture</a>
-                </li>
-                <li>
-                  <a href="home-photography.html">Photography</a>
-                </li>
-                <li>
-                  <a href="home-landing.html">Landing Page</a>
-                </li>
-                <li>
-                  <a href="home-resume.html">Resume</a>
-                </li>
-                <li>
-                  <a href="home-models.html">Model Agency<span class="label">New</span></a>
-                </li>
-                <li>
-                  <a href="home-fitness.html">Fitness<span class="label">New</span></a>
-                </li>
-              </ul>
-            </li>
-          </ul>
+        <li class="">
+          <a href="{{route('home.page')}}">Home</a>
+        
         </li>
         <li class="has-submenu">
           <a href="#">Pages</a>
@@ -138,76 +96,12 @@ $theme_data=App\Models\Theme::find(1);
             <li>
               <ul>
                 <li>
-                  <span>Pages</span>
+                  <a href="{{route('about.page')}}">About Us</a>
                 </li>
                 <li>
-                  <a href="page-about.html">About Us</a>
+                  <a href="{{route('contact.page')}}">Contact</a>
                 </li>
-                <li>
-                  <a href="page-about-2.html">About Us 2</a>
-                </li>
-                <li>
-                  <a href="page-services.html">Services</a>
-                </li>
-                <li>
-                  <a href="page-services-2.html">Services 2</a>
-                </li>
-                <li>
-                  <a href="page-contact.html">Contact</a>
-                </li>
-                <li>
-                  <a href="page-contact-2.html">Contact 2</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-        <li class="has-submenu last-elements">
-          <a href="#">Blog</a>
-          <ul class="submenu">
-            <li>
-              <a href="blog-fixed-image.html">Fixed Image</a>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Classic</a>
-              <ul class="submenu">
-                <li>
-                  <a href="blog.html">No Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-sidebar.html">Right Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-sidebar-left.html">Left Sidebar</a>
-                </li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Masonry</a>
-              <ul class="submenu">
-                <li>
-                  <a href="blog-masonry.html">No Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-masonry-sidebar.html">Right Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-masonry-sidebar-left.html">Left Sidebar</a>
-                </li>
-              </ul>
-            </li>
-            <li class="has-submenu">
-              <a href="#">Single Post</a>
-              <ul class="submenu">
-                <li>
-                  <a href="blog-single.html">No Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-single-sidebar.html">Right Sidebar</a>
-                </li>
-                <li>
-                  <a href="blog-single-sidebar-left.html">Left Sidebar</a>
-                </li>
+           
               </ul>
             </li>
           </ul>
@@ -229,10 +123,10 @@ $theme_data=App\Models\Theme::find(1);
 
           <ul class="submenu">
             <li>
-              <a href="{{url('/')}}">Auth</a>
+              <a href="{{url('/login')}}">Login</a>
             </li>
             <li>
-              <a href="{{url('allcart')}}">Cart</a>
+              <a href="{{url('/register')}}">Register</a>
             </li>
          
           </ul>

@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\ThemeController;
 use App\Http\Controllers\Admin\ProTagController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\CategoryController;
 
 Route::group(['middleware' => 'users.redirect'],function (){
     Route::get('/login',[AdminController::class, 'login'])->name('admin.login');
@@ -16,6 +17,8 @@ Route::group(['middleware' => 'users.redirect'],function (){
 // home page routes
 
 Route::get('/',[HomeController::class,'index'])->name('home.page');
+Route::get('/contact',[HomeController::class,'contact'])->name('contact.page');
+Route::get('/about',[HomeController::class,'about'])->name('about.page');
 
 Route::get('/singleproduct/{id}',[HomeController::class,'shop']);
 Route::get('/search',[HomeController::class,'search']);
@@ -39,13 +42,15 @@ Route::group(['middleware' => 'users'],function (){
     //other routes for administration
 
     Route::resource('products', ProductController::class);
+    Route::resource('protag', ProTagController::class);
+    Route::resource('category', CategoryController::class);
 
     Route::get('/logout',[UserController::class, 'logout'])->name('admin.logout');
     
     Route::get('/adminpage',[UserController::class, 'index'])->name('admin.dashboard');
 
     Route::resource('theme', ThemeController::class);
-    Route::resource('protag', ProTagController::class);
+   
     
     
     
