@@ -98,14 +98,14 @@
           <div class="container-fluid">
             <div class="row">
 
-              @foreach ($datas as $data )
+              @foreach ($data as $data )
               <div class="col-md-4 col-sm-6">
                 <div class="shop-product">
                   <div class="product-thumb">
                     <a href="{{ url('/singleproduct', $data->id) }}">
                       <img style="width:250px; height:220px;" src="{{ ('img/product/' . $data -> photo ) }}" alt="">
                     </a>
-                    <div class="product-overlay"><a href="#" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
+                    <div class="product-overlay"><a href="{{ url('/singleproduct', $data->id) }}" class="btn btn-color-out btn-sm">Add To Cart<i class="ti-bag"></i></a>
                     </div>
                   </div>
                   <div class="product-info">
@@ -124,8 +124,8 @@
               </li> --}}
               {{-- <li class="active"><a href="#">1</a>
               </li> --}}
-              <li><a href="#">{{$datas -> links()}}</a>
-              </li>
+              {{-- <li><a href="#">{{$data -> links()}}</a>
+              </li> --}}
               {{-- <li><a href="#">3</a>
               </li>
               <li><a href="#">4</a>

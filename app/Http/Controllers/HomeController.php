@@ -10,9 +10,9 @@ class HomeController extends Controller
 {
 
     public function index(){
-        $datas =Product::paginate(9);
+        $data =Product::paginate(9);
         return view('frontend.pages.index', [
-            'datas' => $datas
+            'data' => $data
         ]);
     }
 

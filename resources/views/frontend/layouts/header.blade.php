@@ -2,8 +2,16 @@
 
 $theme_data=App\Models\Theme::find(1);
 
-
+// if (Auth::id()) {
+//             $logid=Auth::user()->id;
+//             $carts=cart::where('user_id', '=',$logid)->get();
+           
+//         }else{
+//             return redirect('login');
+//         }
+    
 @endphp
+
 
 
 
@@ -37,7 +45,7 @@ $theme_data=App\Models\Theme::find(1);
                   <h6 class="upper">Your Cart</h6>
                 </div>
                 <div class="col-xs-6 text-right">
-                  <h6 class="upper">$399.99</h6>
+                  <h6 class="upper">$</h6>
                 </div>
               </div>
               <!-- end of row-->
@@ -48,7 +56,7 @@ $theme_data=App\Models\Theme::find(1);
                   <img src="images/shop/2.jpg" alt="">
                 </div>
                 <div class="product-summary">
-                  <a href="#">Premium Suit Blazer</a><span>$199.99</span>
+                  <a href="#">Premium Suit Blazer</a><span>$99</span>
                 </div>
               </li>
               <li>
