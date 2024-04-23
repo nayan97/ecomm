@@ -47,7 +47,7 @@
             <div class="widget">
               <h6 class="upper">Trending Products</h6>
               <ul class="nav product-list">
-                @php
+               @php
                 $resent =App\Models\Product::take(3)->get();
               @endphp
 
